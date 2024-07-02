@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <div class="cover" id="cover">
+            <h1>𝗛ᴀᴘᴘʏ 𝗕ɪʀᴛʜᴅᴀʏ 𝗗ᴇᴀʀ 𝗦ʜɪᴠᴀᴍ</h1>
+            <div class="photos">
+                <img src="photo1.jpg" alt="Photo 1" class="small-photo top-left">
+                <img src="photo2.jpg" alt="Photo 2" class="small-photo top-right">
+                <img src="photo3.jpg" alt="Photo 3" class="small-photo bottom-left">
+                <img src="photo4.jpg" alt="Photo 4" class="small-photo bottom-right">
+            </div>
+        </div>
+        <div class="inside" id="inside">
+            <img src="photo.jpg" alt="Birthday Photo" class="photo">
+            <p class="message">ʜᴀᴘᴘʏ ʙɪʀᴛʜᴅᴀʏ 🥳🎂 , ɪ ᴡɪsʜ ʏᴏᴜ ᴀᴄʜɪᴇᴠᴇ ᴀʟʟ ʏᴏᴜʀ ᴅʀᴇᴀᴍs ᴀɴᴅ ʙᴇᴄᴏᴍᴇ sᴜᴄᴄᴇssғᴜʟʟ ɪɴ ʏᴏᴜʀ ʟɪғᴇ . ɢᴏᴅ ʙʟᴇss ʏᴏᴜ ᴡɪᴛʜ ᴀʟʟ ᴛʜᴇ ʜᴀᴘᴘɪɴᴇss ᴏғ ᴛʜᴇsᴇ ᴡᴏʀʟᴅ . ᴋᴇᴇᴘ sᴍɪʟɪɴɢ ᴀs ʏᴏᴜ ᴀʀᴇ sᴍɪʟɪɴɢ ɴᴏᴡ . ᴇɴᴊᴏʏ ʏᴏᴜʀ ᴅᴀʏ 😉💗</p>
+        </div>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="backgroundMusic">
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // JavaScript to play the audio when the page is loaded
+        window.addEventListener('DOMContentLoaded', (event) => {
+            var audio = document.getElementById('backgroundMusic');
+            audio.play();
+            audio.loop = true;
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

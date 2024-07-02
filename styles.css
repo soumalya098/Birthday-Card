@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+.cover, .inside {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.cover {
+    background: #ff5f6d;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    transform-origin: right center;
+}
+
+.photos {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* So the click on the cover works */
+}
+
+.small-photo {
+    width: 80px; /* Increase the width */
+    height: 80px; /* Increase the height */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    position: absolute;
+}
+
+.top-left {
+    top: 10px; /* Adjust the positioning */
+    left: 3px; /* Adjust the positioning */
+}
+
+.top-right {
+    top: 10px; /* Adjust the positioning */
+    right: 3px; /* Adjust the positioning */
+}
+
+.bottom-left {
+    bottom: 10px; /* Adjust the positioning */
+    left: 3px; /* Adjust the positioning */
+}
+
+.bottom-right {
+    bottom: 10px; /* Adjust the positioning */
+    right: 3px; /* Adjust the positioning */
+}
+
+
+.inside {
+    background: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transform-origin: left center;
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.photo {
+    max-width: 100%; /* Ensure image does not overflow */
+    max-height: 60%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 0.8em;
+    color: #333;
+    max-width: 100%; /* Ensure text does not overflow */
+    overflow: auto; /* Enable scrolling if necessary */
+}
+
+.card.open .cover {
+    transform: rotateY(-180deg);
+}
+
+.card.open .inside {
+    transform: rotateY(0);
+}
