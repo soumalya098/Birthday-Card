@@ -30,8 +30,8 @@
     </audio>
 
     <script>
-        // JavaScript to play the audio when the page is loaded
-        window.addEventListener('DOMContentLoaded', (event) => {
+        // JavaScript to play the audio on user interaction
+        document.getElementById('cover').addEventListener('click', function() {
             var audio = document.getElementById('backgroundMusic');
             audio.play();
             audio.loop = true;
