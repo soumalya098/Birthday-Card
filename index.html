@@ -3,41 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Card Webpage</title>
+    <title>Birthday Card</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hide an element with a specific id or class */
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="card">
         <div class="cover" id="cover">
-            <h1>𝗛ᴀᴘᴘʏ 𝗕ɪʀᴛʜᴅᴀʏ 𝗗ᴇᴀʀ 𝗦ʜɪᴠᴀᴍ</h1>
+            <h1>𝐇ᴀᴘᴘʏ 𝐁ɪʀᴛʜᴅᴀʏ  𝐒ᴀᴜʀᴀ❤️</h1>
             <div class="photos">
-                <img src="photo1.jpg" alt="Photo 1" class="small-photo top-left">
-                <img src="photo2.jpg" alt="Photo 2" class="small-photo top-right">
-                <img src="photo3.jpg" alt="Photo 3" class="small-photo bottom-left">
-                <img src="photo4.jpg" alt="Photo 4" class="small-photo bottom-right">
+                <img src="photo1.jpg" alt="Photo 1" class="rectangle-photo">
             </div>
         </div>
         <div class="inside" id="inside">
             <img src="photo.jpg" alt="Birthday Photo" class="photo">
-            <p class="message">ʜᴀᴘᴘʏ ʙɪʀᴛʜᴅᴀʏ 🥳🎂 , ɪ ᴡɪsʜ ʏᴏᴜ ᴀᴄʜɪᴇᴠᴇ ᴀʟʟ ʏᴏᴜʀ ᴅʀᴇᴀᴍs ᴀɴᴅ ʙᴇᴄᴏᴍᴇ sᴜᴄᴄᴇssғᴜʟʟ ɪɴ ʏᴏᴜʀ ʟɪғᴇ . ɢᴏᴅ ʙʟᴇss ʏᴏᴜ ᴡɪᴛʜ ᴀʟʟ ᴛʜᴇ ʜᴀᴘᴘɪɴᴇss ᴏғ ᴛʜᴇsᴇ ᴡᴏʀʟᴅ . ᴋᴇᴇᴘ sᴍɪʟɪɴɢ ᴀs ʏᴏᴜ ᴀʀᴇ sᴍɪʟɪɴɢ ɴᴏᴡ . ᴇɴᴊᴏʏ ʏᴏᴜʀ ᴅᴀʏ 😉💗</p>
+            <p class="message">ʜᴀᴘᴘʏ ʙɪʀᴛʜᴅᴀʏ 🥳🎂 , ɪ ᴡɪsʜ ʏᴏᴜ ᴀᴄʜɪᴇᴠᴇ ᴀʟʟ ʏᴏᴜʀ ᴅʀᴇᴀᴍs ᴀɴᴅ ʙᴇᴄᴏᴍᴇ sᴜᴄᴄᴇssғᴜʟʟ ɪɴ ʏᴏᴜʀ ʟɪғᴇ . ɢᴏᴅ ʙʟᴇss ʏᴏᴜ ᴡɪᴛʜ ᴀʟʟ ᴛʜᴇ ʜᴀᴘᴘɪɴᴇss ᴏғ ᴛʜᴇsᴇ ᴡᴏʀʟᴅ . ᴋᴇᴇᴘ sᴍɪʟɪɴɢ ᴀs ʏᴏᴜ ᴀʀᴇ sᴍɪʟɪɴɢ ɴᴏᴡ . ᴇɴᴊᴏʏ ʏᴏᴜʀ ᴅᴀʏ 😉💗 </p>
+            <button class="next-btn">Next</button>
+        </div>
+        <div class="inside next-page" id="nextPage">
+            <img src="photo2.jpg" alt="Another Birthday Photo" class="photo">
+            <p class="message">ʟᴏᴠᴇ ʏᴏᴜ sᴏ ᴍᴜᴄʜ 😘❤️</p>
         </div>
     </div>
 
     <!-- Audio Player -->
-    <audio id="backgroundMusic">
+    <audio id="backgroundMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        // JavaScript to play the audio on user interaction
-        document.getElementById('cover').addEventListener('click', function() {
+        // Play the audio once the page has loaded
+        document.addEventListener('DOMContentLoaded', function() {
             var audio = document.getElementById('backgroundMusic');
-            audio.play();
-            audio.loop = true;
+            audio.play().catch(function(error) {
+                console.log('Playback prevented:', error);
+                document.body.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+
+        // JavaScript to handle page flipping
+        document.getElementById('cover').addEventListener('click', function() {
+            document.querySelector('.card').classList.add('open');
+        });
+
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            document.querySelector('.card').classList.add('show-next');
         });
     </script>
-
-    <script src="script.js"></script>
 </body>
 </html>
